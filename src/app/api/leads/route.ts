@@ -56,8 +56,22 @@ const MAX_ZIP = 12;
 function isSameOriginRequest(req: Request): boolean {
   const origin = req.headers.get("origin");
   const referer = req.headers.get("referer");
+  // Derive the request's own origin from the host it came in on, so a browser
+  // submitting against e.g. aduverified.vercel.app or any *.vercel.app preview
+  // counts as same-origin even before the custom domain is wired up.
+  // (Browsers don't let attacker pages forge the Origin header, so this still
+  // blocks cross-site abuse from attacker.com.)
+  const host = req.headers.get("host");
+  const proto = req.headers.get("x-forwarded-proto") ?? "https";
+  const selfOrigin = host ? `${proto}://${host}` : null;
+
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "";
-  const allowed = [siteUrl, "http://localhost:3000", "http://127.0.0.1:3000"].filter(Boolean);
+  const allowed = [
+    selfOrigin,
+    siteUrl,
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+  ].filter(Boolean) as string[];
   const norm = (s: string) => s.replace(/\/$/, "");
 
   if (origin) {
