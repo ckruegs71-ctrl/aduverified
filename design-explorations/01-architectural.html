@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ADUVerified — Direction 01: Architectural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700;800&family=Archivo+Narrow:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f4f4f1;
+    --ink: #111110;
+    --ink-soft: #54534e;
+    --line: #cfcfc8;
+    --red: #d23d1e; /* swiss accent */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Archivo", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: "Archivo Narrow", monospace; letter-spacing: 0.1em; text-transform: uppercase; font-size: 12px; }
+
+  /* Top grid rulers */
+  nav { border-bottom: 1px solid var(--ink); }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; max-width: 1280px; margin: 0 auto; }
+  .logo { font-family: "Archivo Expanded"; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; }
+  .nav-cta { border: 1px solid var(--ink); padding: 8px 18px; font-size: 13px; font-weight: 600; }
+
+  /* Hero */
+  .hero { padding: 90px 0 60px; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; }
+  .label-row { display: flex; gap: 24px; color: var(--ink-soft); margin-bottom: 40px; }
+  .label-row .red { color: var(--red); }
+  h1 {
+    font-family: "Archivo Expanded";
+    font-weight: 800;
+    font-size: clamp(48px, 7vw, 104px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  h1 .light { font-weight: 600; color: var(--ink-soft); }
+  .lede { font-size: 19px; line-height: 1.5; color: var(--ink-soft); max-width: 440px; margin-top: 8px; }
+  .cta-row { display: flex; align-items: center; gap: 28px; margin-top: 40px; }
+  .btn { background: var(--ink); color: var(--paper); padding: 16px 28px; font-weight: 600; font-size: 14px; text-decoration: none; display: inline-flex; gap: 10px; align-items: center; transition: background .2s; }
+  .btn:hover { background: var(--red); }
+  .link { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+
+  /* Spec panel */
+  .spec { border: 1px solid var(--ink); }
+  .spec-head { display: flex; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .spec-row { display: grid; grid-template-columns: 140px 1fr; border-bottom: 1px solid var(--line); }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row div { padding: 14px 20px; }
+  .spec-row .k { border-right: 1px solid var(--line); color: var(--ink-soft); }
+  .spec-row .v { font-weight: 600; }
+
+  /* Measurement ticks down the side */
+  .ticks { position:absolute; top:90px; right:40px; display:flex; flex-direction:column; gap:6px; }
+  .ticks span { width: 12px; height:1px; background: var(--line); }
+  .ticks span:nth-child(5n+1){ width: 24px; background: var(--ink); }
+
+  /* Stat strip */
+  .stats { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 80px; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 28px 30px; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat .num { font-family: "Archivo Expanded"; font-weight: 700; font-size: 38px; letter-spacing: -0.02em; }
+  .stat .cap { color: var(--ink-soft); font-size: 13px; margin-top: 6px; }
+
+  @media (max-width: 860px){ .hero-grid{ grid-template-columns:1fr; } .stats{ grid-template-columns:1fr 1fr; } .nav-links{display:none;} }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">ADUVERIFIED</div>
+      <div class="nav-links">
+        <a href="#">Process</a><a href="#">States</a><a href="#">For builders</a><a href="#">FAQ</a>
+      </div>
+      <a href="#" class="nav-cta">Request quotes →</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="label-row mono">
+        <span class="red">/ 01 — Verified directory</span>
+        <span>Serving CA · OR · WA · CO · TX · AZ</span>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <h1>Verified ADU<br>builders, <span class="light">matched<br>to your city.</span></h1>
+        </div>
+        <div>
+          <p class="lede">We connect homeowners with builders who specialize in their city&rsquo;s pre-approved ADU plan program — the fastest, most precise path to a legal backyard dwelling.</p>
+          <div class="cta-row">
+            <a href="#" class="btn">Request quotes <span>→</span></a>
+            <a href="#" class="link">How it works</a>
+          </div>
+          <div style="margin-top:48px" class="spec">
+            <div class="spec-head mono"><span>Specimen 14</span><span>CSLB · Active</span></div>
+            <div class="spec-row"><div class="k mono">Builder</div><div class="v">Acton ADU — San Jose</div></div>
+            <div class="spec-row"><div class="k mono">Specialty</div><div class="v">Detached · JADU</div></div>
+            <div class="spec-row"><div class="k mono">Pre-approved</div><div class="v">San Jose · Sacramento</div></div>
+            <div class="spec-row"><div class="k mono">Starting at</div><div class="v">$185,000 · 600 sqft</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="num">6</div><div class="cap">States covered</div></div>
+        <div class="stat"><div class="num">24h</div><div class="cap">To first quotes</div></div>
+        <div class="stat"><div class="num">$20K</div><div class="cap">Saved w/ pre-approved plans</div></div>
+        <div class="stat"><div class="num">$0</div><div class="cap">Cost to homeowners</div></div>
+      </div>
+    </div>
+  </header>
+</body>
+</html>

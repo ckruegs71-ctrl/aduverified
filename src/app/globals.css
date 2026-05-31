@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────
+   ADUVerified — Editorial / Craftsman design system.
+   Magazine-grade typography. Warm paper background.
+   Sage primary, terracotta secondary accent.
+   Section numbering, hairline rules, mono kickers.
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* Paper-warm background, slightly off-cream */
+  --paper:        #f5f1e8;
+  --paper-soft:   #faf7ef;
+  --paper-card:   #fdfbf5;
+
+  /* Ink for body + headlines (warmer than pure black) */
+  --ink:          #1a1714;
+  --ink-soft:     #4a423a;
+  --ink-muted:    #7a6f63;
+  --ink-faint:    #b8ab9a;
+
+  /* Sage (primary brand) */
+  --sage-50:      #ecefe5;
+  --sage-100:    #d3dbc6;
+  --sage-400:    #779170;
+  --sage-600:    #455c42;
+  --sage-700:    #364a33;
+  --sage-900:    #1f2a1e;
+
+  /* Terracotta (warm accent for highlights, dividers, italic flourishes) */
+  --terracotta-400: #c98a5f;
+  --terracotta-600: #a55d34;
+
+  /* Hairline rule color (warm ink) */
+  --rule: #c4b8a8;
+  --rule-soft: rgba(26,23,20,0.08);
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-paper-card: var(--paper-card);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-sage-50: var(--sage-50);
+  --color-sage-100: var(--sage-100);
+  --color-sage-400: var(--sage-400);
+  --color-sage-600: var(--sage-600);
+  --color-sage-700: var(--sage-700);
+  --color-sage-900: var(--sage-900);
+
+  --color-terracotta-400: var(--terracotta-400);
+  --color-terracotta-600: var(--terracotta-600);
+
+  --color-rule: var(--rule);
+
+  --font-sans:    var(--font-geist-sans);
+  --font-display: var(--font-fraunces);
+  --font-mono:    var(--font-jetbrains);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* We deliberately keep light theme — the editorial paper aesthetic
+     loses its warmth in dark mode. Provide darker fallbacks anyway
+     for screens that aggressively re-tint. */
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Paper texture — subtle SVG noise + warm tint */
+.paper {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(at 20% 0%, rgba(197, 168, 124, 0.10) 0%, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(102, 124, 95, 0.08) 0%, transparent 50%),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0 0.06  0 0 0 0.025 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-blend-mode: multiply, multiply, normal;
+}
+
+/* ── Typography classes ──────────────────────────────────── */
+
+/* Magazine display headline — Fraunces with soft axis */
+.display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 400;
+  font-variation-settings: "SOFT" 50, "opsz" 144;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+
+.display em {
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  color: var(--sage-600);
+}
+
+.display-sm {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 500;
+  font-variation-settings: "SOFT" 30, "opsz" 60;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+/* Kicker / overline label — small, all-caps, monospace */
+.kicker {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage-600);
+}
+
+/* Section number badge */
+.section-no {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+}
+
+/* Pull-quote / editor's note treatment */
+.pull-quote {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "opsz" 96;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* Hairline rule — warm ink */
+.rule {
+  height: 1px;
+  background: var(--rule);
+  width: 100%;
+}
+
+.rule-short {
+  width: 3rem;
+  height: 1px;
+  background: var(--sage-600);
+}
+
+/* Dotted leader (like table-of-contents) */
+.dot-leader {
+  background-image: radial-gradient(circle, var(--ink-faint) 1px, transparent 1px);
+  background-size: 7px 7px;
+  background-position: 0 50%;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+/* ── Reusable form input styles ──────────────────────────── */
+.input, .select {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1.5px solid var(--rule);
+  background: transparent;
+  padding: 0.625rem 0.25rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition: border-color 0.15s, background 0.15s;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+.input::placeholder { color: var(--ink-faint); font-style: italic; }
+.input:hover, .select:hover { border-color: var(--sage-400); }
+.input:focus, .select:focus { border-color: var(--sage-600); background: rgba(69, 92, 66, 0.04); outline: none; }
+.select {
+  padding-right: 1.5rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%237a6f63' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.1rem center;
+  background-size: 1.25em;
+}
+
+/* Focus outline — sage, accessible */
+*:focus-visible {
+  outline: 2px solid var(--sage-600);
+  outline-offset: 3px;
+}
+button:focus-visible, a:focus-visible { outline-offset: 4px; }
+
+/* Subtle link underline that grows on hover (used in footer + body links) */
+.underline-grow {
+  position: relative;
+  display: inline-block;
+}
+.underline-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+.underline-grow:hover::after { transform: scaleX(1); }
+
+/* ── Entrance animations ─────────────────────────────────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.rise        { animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.fade        { animation: fade 1.2s ease-out backwards; }
+.delay-100   { animation-delay: 0.10s; }
+.delay-200   { animation-delay: 0.20s; }
+.delay-300   { animation-delay: 0.30s; }
+.delay-400   { animation-delay: 0.40s; }
+.delay-500   { animation-delay: 0.50s; }
+.delay-600   { animation-delay: 0.60s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .fade { animation: none; }
+}
+
+/* ── Decorative compass mark (used in state cards) ───────── */
+.compass {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  border: 1px solid var(--ink-muted);
+  border-radius: 50%;
+  position: relative;
+}
+.compass::before, .compass::after {
+  content: "";
+  position: absolute;
+  background: var(--ink-muted);
+}
+.compass::before {
+  width: 1px; top: 2px; bottom: 2px; left: 50%; transform: translateX(-50%);
+}
+.compass::after {
+  height: 1px; left: 2px; right: 2px; top: 50%; transform: translateY(-50%);
+}
