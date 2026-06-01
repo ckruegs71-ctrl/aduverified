@@ -7,9 +7,9 @@ const REASONS = [
   },
   {
     no: "II",
-    title: "License verified, not self-reported",
+    title: "You stay in the driver's seat",
     body:
-      "Every builder is cross-checked with their state contractor board — CSLB in CA, CCB in OR, L&I in WA. Active license, no major complaints, real address. The badge means something.",
+      "We pass your inquiry to up to three ADU builders in your area. They reach out to you directly — you decide who to talk to, who to hire, and on what terms. Verify their license, references, and contract yourself before you sign.",
   },
   {
     no: "III",

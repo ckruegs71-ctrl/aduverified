@@ -163,13 +163,13 @@ export function LeadForm() {
         <div className="text-center py-12">
           <p className="kicker">Submitted</p>
           <h3 className="display mt-4 text-4xl text-ink">
-            We&apos;ll be in touch <em>within 24 hours.</em>
+            We&apos;ve got your <em>inquiry.</em>
           </h3>
           <div className="rule-short mt-8 mx-auto" />
           <p className="mt-8 text-base text-ink-soft max-w-md mx-auto leading-relaxed">
             Check your email for confirmation. We&apos;ll match you with up to
-            three verified ADU builders in your area and they&apos;ll reach
-            out directly.
+            three ADU builders in your area and they&apos;ll reach out
+            directly. Response times vary by builder.
           </p>
         </div>
       </FormShell>
@@ -283,8 +283,8 @@ function FormShell({ children }: { children: React.ReactNode }) {
             Tell us about your <em>project.</em>
           </h2>
           <p className="mt-5 text-base text-ink-soft leading-relaxed max-w-md">
-            Takes about two minutes. We&apos;ll match you with up to three
-            vetted builders for free — no obligation, no spam.
+            Takes about two minutes. We&apos;ll match you with up to three ADU
+            builders in your area — no obligation, no spam, no fee.
           </p>
         </div>
         <div className="mt-14 bg-paper-card text-ink p-8 sm:p-12 border border-rule shadow-[0_20px_50px_-30px_rgba(26,23,20,0.18)]">

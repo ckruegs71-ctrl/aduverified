@@ -32,10 +32,12 @@ export default function DisclosuresPage() {
 
       <LegalH2>Always multiple builder options</LegalH2>
       <p>
-        Every qualified inquiry is matched with{" "}
-        <strong>at least two ADU builders</strong>, not a single recommendation.
-        ADUVerified does not pick a builder for you. You evaluate the options
-        and decide who, if anyone, to hire.
+        When we send your inquiry to builders, we send it to{" "}
+        <strong>at least two — never just one</strong>. If we don&apos;t yet
+        have at least two suitable ADU builders in your area, we&apos;ll
+        contact you directly before any builder does, rather than send your
+        information to a lone builder. ADUVerified does not pick a builder for
+        you. You evaluate the options and decide who, if anyone, to hire.
       </p>
 
       <LegalH2>Not professional advice</LegalH2>

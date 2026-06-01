@@ -251,31 +251,44 @@ async function sendEmail(to: string, subject: string, html: string): Promise<voi
 
 export async function sendLeadNotification(
   lead: LeadEmailPayload,
-  opts: { forwardedTo: BuilderRecipient[] } = { forwardedTo: [] },
+  opts: {
+    forwardedTo: BuilderRecipient[];
+    /** True when auto-distribute was skipped because activeCount < min threshold. */
+    skipped?: boolean;
+    /** Number of matching active builders in the state (even if skipped). */
+    activeCount?: number;
+  } = { forwardedTo: [] },
 ): Promise<void> {
   const fullName = `${lead.first_name} ${lead.last_name}`.trim();
   const subject = `🛎️ New ADU lead — ${lead.state} — ${fullName}`;
 
-  const forwardedSection =
-    opts.forwardedTo.length === 0
-      ? `<div style="margin:16px 0 24px;padding:12px 16px;background:#fff8e1;border:1px solid #f0c419;border-radius:6px;color:#665100;font-size:14px;">
-           ⚠ <strong>No active builders for ${escapeHtml(lead.state)}.</strong> This lead was NOT forwarded.
-           Add builders in the Supabase Table Editor (set <code>state="${escapeHtml(lead.state)}"</code>, <code>active=true</code>)
-           to enable auto-distribution. For now, you'll need to broker this one manually.
-         </div>`
-      : `<h3 ${H3}>Forwarded to ${opts.forwardedTo.length} builder${opts.forwardedTo.length === 1 ? "" : "s"}</h3>
-         <table ${TABLE}>
-           ${opts.forwardedTo
-             .map(
-               (b) =>
-                 textRow(
-                   b.name,
-                   b.contact_name ? `${b.contact_name} <${b.email}>` : b.email,
-                 ),
-             )
-             .join("")}
-         </table>
-         <p style="font-size:13px;color:#555;margin:8px 0 0;">Each of the above also received the full lead detail via email and was told to reach out to the homeowner directly.</p>`;
+  let forwardedSection: string;
+  if (opts.forwardedTo.length > 0) {
+    forwardedSection = `<h3 ${H3}>Forwarded to ${opts.forwardedTo.length} builder${opts.forwardedTo.length === 1 ? "" : "s"}</h3>
+       <table ${TABLE}>
+         ${opts.forwardedTo
+           .map(
+             (b) =>
+               textRow(
+                 b.name,
+                 b.contact_name ? `${b.contact_name} <${b.email}>` : b.email,
+               ),
+           )
+           .join("")}
+       </table>
+       <p style="font-size:13px;color:#555;margin:8px 0 0;">Each of the above also received the full lead detail via email and was told to reach out to the homeowner directly.</p>`;
+  } else if (opts.skipped) {
+    // Skipped because <MIN_BUILDERS_PER_LEAD (2) active builders matched.
+    forwardedSection = `<div style="margin:16px 0 24px;padding:12px 16px;background:#fff8e1;border:1px solid #f0c419;border-radius:6px;color:#665100;font-size:14px;">
+         ⚠ <strong>Auto-distribute skipped for ${escapeHtml(lead.state)}</strong> — found only ${opts.activeCount ?? 1} active builder (we require at least 2 before auto-routing). This lead was NOT sent to any builder. Add another in the Supabase Table Editor (set <code>state="${escapeHtml(lead.state)}"</code>, <code>active=true</code>) to enable auto-distribution. Broker this lead manually for now.
+       </div>`;
+  } else {
+    forwardedSection = `<div style="margin:16px 0 24px;padding:12px 16px;background:#fff8e1;border:1px solid #f0c419;border-radius:6px;color:#665100;font-size:14px;">
+         ⚠ <strong>No active builders for ${escapeHtml(lead.state)}.</strong> This lead was NOT forwarded.
+         Add builders in the Supabase Table Editor (set <code>state="${escapeHtml(lead.state)}"</code>, <code>active=true</code>)
+         to enable auto-distribution. For now, you'll need to broker this one manually.
+       </div>`;
+  }
 
   const html = `
     <h2 style="margin:0 0 8px;font-family:Georgia,serif;color:#1a1714;">New ADU Lead</h2>
@@ -331,7 +344,7 @@ export async function sendLeadAutoresponder(lead: LeadEmailPayload): Promise<voi
     <p>Here's what happens next:</p>
     <ol>
       <li>We verify your details and match you with <strong>at least two</strong> builders who specialize in your project type and area.</li>
-      <li>Each matched builder will reach out directly within 24 hours.</li>
+      <li>Each matched builder will reach out to you directly with their quote. Response times vary by builder.</li>
       <li>You compare options and choose who feels like the right fit — no obligation.</li>
     </ol>
     <p style="color:#555;font-size:13px;">A reminder: ${escapeHtml(SITE_NAME)} is an advertising and matching service, not a contractor. Please verify each builder's license, references, insurance, and contract before hiring.</p>

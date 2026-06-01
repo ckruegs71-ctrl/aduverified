@@ -7,15 +7,15 @@ const STEPS = [
   },
   {
     n: "02",
-    title: "We match you with verified builders",
+    title: "We match you with ADU builders",
     body:
-      "Up to three builders who specialize in your city, your build type, and (where it applies) your city's pre-approved plan program.",
+      "Up to three ADU builders who serve your area and (where it applies) know your city's pre-approved plan program.",
   },
   {
     n: "03",
-    title: "Compare free quotes in 24 hours",
+    title: "Compare options and choose",
     body:
-      "Builders contact you directly. You compare scope, timeline, and price. Pick the one who feels right — or none. No obligation.",
+      "Builders contact you directly. You compare scope, timeline, and price on your own terms. Pick the one who feels right — or none. No obligation.",
   },
 ];
 

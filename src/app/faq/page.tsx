@@ -71,8 +71,8 @@ export default function FaqPage() {
         <p className="display-sm text-2xl text-ink">Still have questions?</p>
         <p className="mt-3 text-ink-soft max-w-xl">
           Tell us about your project and we&apos;ll match you with up to three
-          verified ADU builders who can answer them for your exact city and lot —
-          free, no obligation.
+          ADU builders who serve your area — they can answer questions specific
+          to your city and lot. Free, no obligation.
         </p>
         <Link
           href="/#lead-form"

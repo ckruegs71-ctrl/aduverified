@@ -21,8 +21,8 @@ export function Footer() {
           <div>
             <p className="kicker mb-4">About</p>
             <p className="text-sm text-ink-soft leading-relaxed">
-              Connecting homeowners with verified ADU builders across CA, OR,
-              WA, CO, TX, and AZ. Free for homeowners. Paid by builders.
+              Connecting homeowners with ADU builders across CA, OR, WA, CO,
+              TX, and AZ. Free for homeowners. Paid by builders.
             </p>
           </div>
           <FooterCol

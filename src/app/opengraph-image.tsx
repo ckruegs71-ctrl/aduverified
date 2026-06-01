@@ -42,13 +42,13 @@ export default function OpengraphImage() {
         {/* Headline */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 80, color: "#1a1714", lineHeight: 1.05, letterSpacing: "-1.5px" }}>
-            Verified ADU builders
+            ADU builders
           </div>
           <div style={{ fontSize: 80, fontStyle: "italic", color: "#455c42", lineHeight: 1.05, letterSpacing: "-1.5px" }}>
             who know your city.
           </div>
           <div style={{ fontSize: 30, color: "#4a423a", marginTop: 28 }}>
-            Pre-approved plans + verified builders. Free quotes in 24 hours.
+            Pre-approved plans + ADU builders. Get matched, compare, choose.
           </div>
         </div>
 

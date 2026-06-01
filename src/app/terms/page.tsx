@@ -38,12 +38,13 @@ export default function TermsPage() {
 
       <LegalH2>Builder matching &amp; contact</LegalH2>
       <p>
-        When you submit an inquiry and provide consent, your information is shared
-        with <strong>at least two and up to three</strong> matched builders who
-        may contact you directly. We do not send your inquiry to a single builder
-        — you will always have multiple options to evaluate and choose from. The
-        specific number of matches and distribution timing may vary by state and
-        demand.
+        When you submit an inquiry and provide consent, your information may be
+        shared with <strong>at least two and up to three</strong> matched ADU
+        builders who may contact you directly. We do not send your inquiry to a
+        single builder — if we don&apos;t have at least two suitable builders in
+        your area at the time of your inquiry, we&apos;ll contact you directly
+        first before sharing your information with anyone. The specific number
+        of matches and distribution timing may vary by state and demand.
       </p>
 
       <LegalH2>Acceptable use</LegalH2>

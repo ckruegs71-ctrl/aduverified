@@ -282,14 +282,13 @@ export async function POST(request: Request) {
   };
 
   // Round-robin distribute to up to 3 active builders in the lead's state.
-  // (Awaited so the admin email can include "Forwarded to:" and the leads row
-  // can be updated with the builder ids. Builder email sends themselves are
-  // fire-and-forget inside distributeLeadToBuilders.)
-  const { builderIds, builders } = await distributeLeadToBuilders(
-    supabase,
-    row.state,
-    emailPayload,
-  );
+  // Auto-distribute is skipped when fewer than 2 active builders match — the
+  // admin email then shows a "found only N active, need ≥2" banner so Chad
+  // brokers manually. (Awaited so the admin email can include "Forwarded to:"
+  // and the leads row can be updated with the builder ids. Builder email sends
+  // themselves are fire-and-forget inside distributeLeadToBuilders.)
+  const { builderIds, builders, skipped, activeCount } =
+    await distributeLeadToBuilders(supabase, row.state, emailPayload);
 
   // Best-effort update of the lead with distribution result. Don't fail the
   // request if this hiccups — the lead is already saved and builders already
@@ -309,7 +308,11 @@ export async function POST(request: Request) {
 
   // Fire-and-forget admin + autoresponder emails. We don't fail the request if
   // email sending hiccups — the lead is captured and admin can retry later.
-  void sendLeadNotification(emailPayload, { forwardedTo: builders });
+  void sendLeadNotification(emailPayload, {
+    forwardedTo: builders,
+    skipped,
+    activeCount,
+  });
   void sendLeadAutoresponder(emailPayload);
 
   return NextResponse.json({ ok: true });

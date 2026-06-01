@@ -22,7 +22,7 @@ export async function generateMetadata({
   const { state } = await params;
   const info = getStateBySlug(state);
   if (!info) return {};
-  const metaDescription = `ADU laws, costs, pre-approved plans & verified builders in ${info.name}. Get matched with vetted ${info.name} ADU builders — free quotes in 24 hours.`;
+  const metaDescription = `ADU laws, costs, pre-approved plans, and a directory of ADU builders in ${info.name}. Get matched with up to three ${info.name} ADU builders for your project — free, no obligation.`;
   return {
     title: `ADU Laws & Builders in ${info.name} (2026)`,
     description: metaDescription,
@@ -133,15 +133,12 @@ export default async function StatePage({
       {/* CTA */}
       <div className="mt-14 border-t border-rule pt-10">
         <p className="display-sm text-2xl text-ink">
-          Find a verified ADU builder in {info.name}
+          Find an ADU builder in {info.name}
         </p>
         <p className="mt-3 text-ink-soft max-w-xl">
-          Tell us about your project and we&apos;ll match you with{" "}
-          {info.distributionMode === "exclusive"
-            ? "the best-fit verified builder"
-            : `up to ${info.competeBuilderCount} verified builders`}{" "}
-          who know {info.name}&apos;s rules and pre-approved plan programs — free,
-          no obligation.
+          Tell us about your project and we&apos;ll match you with up to three
+          ADU builders who serve {info.name} and know its rules and
+          pre-approved plan programs — free, no obligation.
         </p>
         <Link
           href="/#lead-form"

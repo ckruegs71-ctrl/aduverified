@@ -32,11 +32,11 @@ const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "ADUVerified";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Verified ADU Builders & Pre-Approved Plans`,
+    default: `${SITE_NAME} — ADU Builders + Pre-Approved Plans Directory`,
     template: `%s · ${SITE_NAME}`,
   },
   description:
-    "Find verified ADU, tiny home & pre-fab builders in CA, OR, WA, CO, TX & AZ who know your city's pre-approved plan program. Free quotes in 24 hours.",
+    "A free lead-matching directory connecting U.S. homeowners with ADU, tiny home, and pre-fab builders in CA, OR, WA, CO, TX & AZ. Submit your project once and up to three ADU builders in your area will reach out — no fee, no spam.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME }],
   keywords: [
@@ -59,17 +59,17 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Verified ADU Builders & Pre-Approved Plans`,
+    title: `${SITE_NAME} — ADU Builders + Pre-Approved Plans Directory`,
     description:
-      "Find verified ADU builders who know your city's pre-approved plan program. Free quotes in 24 hours.",
+      "Free lead-matching directory connecting homeowners with ADU builders who know their city's pre-approved plan program. Up to three matched builders reach out to you — no fee, no spam.",
     locale: "en_US",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Verified ADU Builders & Pre-Approved Plans`,
+    title: `${SITE_NAME} — ADU Builders + Pre-Approved Plans Directory`,
     description:
-      "Find verified ADU builders who know your city's pre-approved plan program. Free quotes in 24 hours.",
+      "Free lead-matching directory connecting homeowners with ADU builders who know their city's pre-approved plan program. Up to three matched builders reach out to you — no fee, no spam.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   robots: {
@@ -85,7 +85,7 @@ const localBusinessJsonLd = {
   name: SITE_NAME,
   url: SITE_URL,
   description:
-    "Lead-matching directory for verified ADU, tiny home, and pre-fab builders across California, Oregon, Washington, Colorado, Texas, and Arizona.",
+    "Lead-matching directory connecting homeowners with ADU, tiny home, and pre-fab builders across California, Oregon, Washington, Colorado, Texas, and Arizona.",
   areaServed: ["California", "Oregon", "Washington", "Colorado", "Texas", "Arizona"],
 };
 

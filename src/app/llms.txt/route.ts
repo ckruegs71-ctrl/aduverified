@@ -7,20 +7,20 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aduverified.com";
 // AI answers (AIO/GEO).
 export function GET() {
   const stateLines = STATES.map(
-    (s) => `- ${SITE_URL}/${s.slug}: ADU laws, costs, pre-approved plans & verified builders in ${s.name}`,
+    (s) => `- ${SITE_URL}/${s.slug}: ADU laws, costs, pre-approved plans, and ADU builders in ${s.name}`,
   ).join("\n");
 
   const body = `# ADUVerified
 
-> ADUVerified matches U.S. homeowners with verified ADU (accessory dwelling unit), tiny home, and pre-fab builders who know their city's pre-approved plan program. Free for homeowners; builders pay for matched leads. We are an advertising/matching service — not a contractor, broker, lender, or settlement-service provider.
+> ADUVerified is a free lead-matching directory that connects U.S. homeowners with ADU (accessory dwelling unit), tiny home, and pre-fab builders who serve their area. Homeowners submit a project once; up to three ADU builders in their state reach out directly with quotes. Free for homeowners; builders pay only for matched leads. ADUVerified is an advertising/matching service — not a contractor, broker, lender, or settlement-service provider. We do not perform background checks, license verification, or quality audits on builders; homeowners should do their own due diligence before hiring.
 
 ## Coverage
 We currently serve California, Oregon, Washington, Colorado, Texas, and Arizona.
 
 ## Key pages
-- ${SITE_URL}/: Get matched with verified ADU builders (lead form)
+- ${SITE_URL}/: Get matched with ADU builders (lead form)
 - ${SITE_URL}/faq: ~30 answers on ADU costs, permits, financing, pre-approved plans, timelines, and process
-- ${SITE_URL}/about: Who we are, how we verify builders, and our methodology
+- ${SITE_URL}/about: Who we are, how the matching service works, and which licensing boards homeowners should check before hiring a builder
 
 ## State guides
 ${stateLines}

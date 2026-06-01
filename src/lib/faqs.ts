@@ -120,7 +120,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       },
       {
         q: "What happens after I submit the form on ADUVerified?",
-        a: "We review your inquiry, then match you with up to three verified builders who fit your project type, location, and (where it applies) your city's pre-approved plan program. Those builders contact you directly — usually within 24 hours — with quotes. You compare and choose; there's no obligation.",
+        a: "We review your inquiry, then match you with up to three ADU builders who serve your area and (where it applies) know your city's pre-approved plan program. Those builders contact you directly with quotes — response times vary by builder. You compare and choose; there's no obligation. ADUVerified is not a contractor and does not vouch for any specific builder's work — verify each builder's license, references, and contract yourself before hiring.",
       },
     ],
   },

@@ -7,9 +7,9 @@ import { STATES } from "@/lib/states";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aduverified.com";
 
 export const metadata: Metadata = {
-  title: "About ADUVerified — How We Verify ADU Builders",
+  title: "About ADUVerified — A Lead-Matching Service for ADU Projects",
   description:
-    "ADUVerified matches homeowners with license-verified ADU builders who know their city's pre-approved plan program. Learn how we vet builders, how we make money, and why it's free for homeowners.",
+    "ADUVerified is a free lead-matching service that connects U.S. homeowners with ADU builders who serve their area. Learn how the match works, how we make money, and why it's free for homeowners.",
   alternates: { canonical: "/about" },
 };
 
@@ -30,7 +30,7 @@ export default function AboutPage() {
     url: SITE_URL,
     email: "hello@aduverified.com",
     description:
-      "ADUVerified matches U.S. homeowners with verified ADU, tiny home, and pre-fab builders who know their city's pre-approved plan program.",
+      "ADUVerified is a lead-matching service that connects U.S. homeowners with ADU, tiny home, and pre-fab builders who serve their area.",
     areaServed: STATES.map((s) => s.name),
   };
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
           We work for <em>homeowners</em>, not builders.
         </>
       }
-      intro="ADUVerified is the trusted front door to building an accessory dwelling unit — matching you with license-verified builders who actually know your city's pre-approved plan program."
+      intro="ADUVerified is a free starting point for building an accessory dwelling unit — we connect you with ADU builders in your area so you can compare options and choose. We don't verify or guarantee any builder ourselves; you do that with your eyes open."
       crumbs={[{ label: "About", href: "/about" }]}
     >
       <div className="space-y-10 text-ink-soft leading-relaxed">
@@ -60,18 +60,24 @@ export default function AboutPage() {
         </section>
 
         <section>
-          <h2 className="display-sm text-xl text-ink mb-2">How we verify builders</h2>
+          <h2 className="display-sm text-xl text-ink mb-2">How the match works (and what we don&apos;t do)</h2>
           <p>
-            Every builder we match you with is cross-checked against their
-            state&apos;s contractor licensing board for an active license and a
-            clean complaint record. We also confirm the business address, the
-            niche they actually specialize in, and — critically — whether they
-            participate in your city&apos;s pre-approved plan program.
+            When you submit your inquiry, we look up ADU builders in your state
+            from our roster and pass your project to up to three of them. They
+            reach out to you directly with a quote.{" "}
+            <strong className="text-ink">
+              We don&apos;t perform background checks, license verification,
+              insurance checks, or quality audits on those builders ourselves.
+            </strong>{" "}
+            That responsibility is yours — and you should do it before signing
+            any contract. We strongly recommend looking up each builder&apos;s
+            license, complaint history, and standing yourself at the
+            appropriate state contractor licensing board before hiring:
           </p>
           <ul className="mt-4 space-y-1.5">
             {LICENSE_BOARDS.map((b) => (
               <li key={b.state} className="flex gap-3">
-                <span className="text-sage-600" aria-hidden>✓</span>
+                <span className="text-sage-600" aria-hidden>›</span>
                 <span>
                   <strong className="text-ink">{b.state}:</strong> {b.board}
                 </span>
@@ -122,7 +128,7 @@ export default function AboutPage() {
           href="/#lead-form"
           className="inline-flex items-center gap-3 bg-ink text-paper px-7 py-3 text-sm font-medium tracking-wide transition hover:bg-sage-700"
         >
-          Get matched with verified builders
+          Get matched with ADU builders
           <span aria-hidden>→</span>
         </Link>
       </div>

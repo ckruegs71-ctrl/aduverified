@@ -1,7 +1,7 @@
 const POINTS = [
-  { num: "I",   label: "License verified",          desc: "Cross-checked with state contractor boards" },
-  { num: "II",  label: "Pre-approved plan literate", desc: "Builders who know your city's program" },
-  { num: "III", label: "No spam",                    desc: "Max 3 matched builders. You control follow-up." },
+  { num: "I",   label: "Pre-approved plan literate", desc: "Matched builders know your city's plan program" },
+  { num: "II",  label: "You compare and choose",     desc: "Up to 3 matched introductions, no obligation" },
+  { num: "III", label: "No spam",                    desc: "Up to 3 matched builders. You control follow-up." },
   { num: "IV",  label: "Free for homeowners",        desc: "Builders pay us — never you." },
 ];
 
