@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "ADUVerified — Verified ADU builders & pre-approved plans";
+export const alt = "ADUVerified — ADU builders & pre-approved plans directory";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
