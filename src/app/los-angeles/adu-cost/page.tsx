@@ -266,7 +266,15 @@ export default function LosAngelesAduCostPage() {
         <p className="text-sm text-ink-muted leading-relaxed max-w-prose">
           The trade-off: standard plans aren&apos;t infinitely customizable. If
           your lot has unusual slope, alley-only access, or an oddly shaped
-          buildable area, a custom design may still be the right call.
+          buildable area, a custom design may still be the right call. For
+          the full plan catalog, savings math, and how to use one,{" "}
+          <Link
+            href="/los-angeles/standard-plan-program"
+            className="text-sage-600 underline-grow font-medium"
+          >
+            read our LA Standard Plan Program guide
+          </Link>
+          .
         </p>
       </section>
 
@@ -545,7 +553,11 @@ export default function LosAngelesAduCostPage() {
           <span aria-hidden>→</span>
         </Link>
         <p className="mt-6 text-sm text-ink-muted">
-          See also our{" "}
+          See also the{" "}
+          <Link href="/los-angeles/standard-plan-program" className="text-sage-600 underline-grow">
+            LA Standard Plan Program guide
+          </Link>
+          , our{" "}
           <Link href="/tools/adu-cost-calculator" className="text-sage-600 underline-grow">
             free ADU cost calculator
           </Link>
