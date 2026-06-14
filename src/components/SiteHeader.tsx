@@ -75,6 +75,9 @@ export function SiteHeader() {
               </div>
             </div>
 
+            <Link href="/tools/adu-cost-calculator" className="text-sm font-medium text-ink-soft hover:text-ink underline-grow">
+              Cost calculator
+            </Link>
             <Link href="/faq" className="text-sm font-medium text-ink-soft hover:text-ink underline-grow">
               FAQ
             </Link>
@@ -115,6 +118,7 @@ export function SiteHeader() {
         <nav className="md:hidden border-t border-rule bg-paper" aria-label="Mobile">
           <div className="mx-auto max-w-7xl px-6 py-4 space-y-1">
             <MobileLink href="/#how-it-works" onNavigate={() => setMobileOpen(false)}>How it works</MobileLink>
+            <MobileLink href="/tools/adu-cost-calculator" onNavigate={() => setMobileOpen(false)}>Cost calculator</MobileLink>
             <MobileLink href="/faq" onNavigate={() => setMobileOpen(false)}>FAQ</MobileLink>
             <MobileLink href="/about" onNavigate={() => setMobileOpen(false)}>About</MobileLink>
             <div className="pt-2">

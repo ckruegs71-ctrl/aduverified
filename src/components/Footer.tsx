@@ -8,8 +8,7 @@ export function Footer() {
         {/* Masthead row */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between border-b border-rule pb-8">
           <div>
-            <p className="kicker">№ 07 — Colophon</p>
-            <div className="display text-5xl mt-3">ADUVerified</div>
+            <div className="display text-5xl">ADUVerified</div>
           </div>
           <p className="font-mono text-xs text-ink-muted">
             Vol. I · Issue 01 · Est. 2026
@@ -29,6 +28,8 @@ export function Footer() {
             title="Explore"
             links={[
               { href: "/#how-it-works", label: "How it works" },
+              { href: "/tools/adu-cost-calculator", label: "Cost calculator" },
+              { href: "/los-angeles/adu-cost", label: "LA ADU cost guide" },
               { href: "/about", label: "About us" },
               { href: "/faq", label: "FAQ" },
               { href: "/#lead-form", label: "Get matched" },

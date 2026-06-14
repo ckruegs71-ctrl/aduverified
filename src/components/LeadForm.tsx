@@ -92,6 +92,18 @@ export function LeadForm() {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [step]);
 
+  // Pre-fill state from ?state=<code> when coming from the cost calculator
+  // or any other deep link. Matches case-insensitively against state codes.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("state");
+    if (!raw) return;
+    const code = raw.toUpperCase();
+    if (STATES.some((s) => s.code === code)) {
+      setData((d) => (d.state ? d : { ...d, state: code }));
+    }
+  }, []);
+
   function update<K extends keyof FormData>(key: K, value: FormData[K]) {
     setData((d) => ({ ...d, [key]: value }));
   }

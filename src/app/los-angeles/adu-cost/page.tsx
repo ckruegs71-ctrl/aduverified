@@ -546,12 +546,16 @@ export default function LosAngelesAduCostPage() {
         </Link>
         <p className="mt-6 text-sm text-ink-muted">
           See also our{" "}
-          <Link href="/faq" className="text-sage-600 underline-grow">
-            ADU FAQ
-          </Link>{" "}
-          and the{" "}
+          <Link href="/tools/adu-cost-calculator" className="text-sage-600 underline-grow">
+            free ADU cost calculator
+          </Link>
+          , the{" "}
           <Link href="/california" className="text-sage-600 underline-grow">
             California ADU guide
+          </Link>
+          , or our{" "}
+          <Link href="/faq" className="text-sage-600 underline-grow">
+            ADU FAQ
           </Link>
           .
         </p>

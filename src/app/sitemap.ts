@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/tools/adu-cost-calculator`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 
   const stateRoutes: MetadataRoute.Sitemap = STATES.map((s) => ({
