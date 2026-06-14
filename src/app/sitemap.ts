@@ -28,6 +28,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/san-diego/adu-cost`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/sacramento/adu-cost`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/portland/adu-cost`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/seattle/adu-cost`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/phoenix/adu-cost`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/austin/adu-cost`,
+      lastModified: new Date("2026-06-14"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 
   const stateRoutes: MetadataRoute.Sitemap = STATES.map((s) => ({

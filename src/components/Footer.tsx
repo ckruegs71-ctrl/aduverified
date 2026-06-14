@@ -16,7 +16,7 @@ export function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid gap-10 mt-12 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 mt-12 sm:grid-cols-2 lg:grid-cols-6">
           <div>
             <p className="kicker mb-4">About</p>
             <p className="text-sm text-ink-soft leading-relaxed">
@@ -29,10 +29,21 @@ export function Footer() {
             links={[
               { href: "/#how-it-works", label: "How it works" },
               { href: "/tools/adu-cost-calculator", label: "Cost calculator" },
-              { href: "/los-angeles/adu-cost", label: "LA ADU cost guide" },
               { href: "/about", label: "About us" },
               { href: "/faq", label: "FAQ" },
               { href: "/#lead-form", label: "Get matched" },
+            ]}
+          />
+          <FooterCol
+            title="City cost guides"
+            links={[
+              { href: "/los-angeles/adu-cost", label: "Los Angeles" },
+              { href: "/san-diego/adu-cost", label: "San Diego" },
+              { href: "/sacramento/adu-cost", label: "Sacramento" },
+              { href: "/portland/adu-cost", label: "Portland" },
+              { href: "/seattle/adu-cost", label: "Seattle" },
+              { href: "/phoenix/adu-cost", label: "Phoenix" },
+              { href: "/austin/adu-cost", label: "Austin" },
             ]}
           />
           <FooterCol

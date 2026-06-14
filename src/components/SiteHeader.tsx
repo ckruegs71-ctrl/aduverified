@@ -4,6 +4,16 @@ import { useState } from "react";
 import Link from "next/link";
 import { STATES } from "@/lib/states";
 
+const CITY_GUIDES: { slug: string; label: string; state: string; href: string }[] = [
+  { slug: "los-angeles", label: "Los Angeles", state: "CA", href: "/los-angeles/adu-cost" },
+  { slug: "san-diego", label: "San Diego", state: "CA", href: "/san-diego/adu-cost" },
+  { slug: "sacramento", label: "Sacramento", state: "CA", href: "/sacramento/adu-cost" },
+  { slug: "portland", label: "Portland", state: "OR", href: "/portland/adu-cost" },
+  { slug: "seattle", label: "Seattle", state: "WA", href: "/seattle/adu-cost" },
+  { slug: "phoenix", label: "Phoenix", state: "AZ", href: "/phoenix/adu-cost" },
+  { slug: "austin", label: "Austin", state: "TX", href: "/austin/adu-cost" },
+];
+
 // Global site header — mounted in layout.tsx so it appears on every page.
 // Provides site-wide internal linking (SEO/crawl paths), a logo-home link,
 // a States dropdown (6 internal links), and the primary "Get matched" CTA.
@@ -26,7 +36,7 @@ export function SiteHeader() {
               How it works
             </Link>
 
-            {/* States dropdown */}
+            {/* Cities dropdown — city cost guides */}
             <div
               className="relative"
               onMouseEnter={() => setStatesOpen(true)}
@@ -39,7 +49,7 @@ export function SiteHeader() {
                 aria-haspopup="true"
                 onClick={() => setStatesOpen((v) => !v)}
               >
-                States
+                City guides
                 <svg viewBox="0 0 20 20" fill="none" className="size-4" aria-hidden>
                   <path d="M6 8l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -50,26 +60,32 @@ export function SiteHeader() {
                   statesOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"
                 }`}
               >
-                <div className="w-56 border border-rule bg-paper-card shadow-[0_20px_50px_-30px_rgba(26,23,20,0.3)] py-2">
-                  {STATES.map((s) => (
+                <div className="w-64 border border-rule bg-paper-card shadow-[0_20px_50px_-30px_rgba(26,23,20,0.3)] py-2">
+                  <p className="px-4 pt-1 pb-2 kicker text-xs">Cost guides by city</p>
+                  {CITY_GUIDES.map((c) => (
                     <Link
-                      key={s.code}
-                      href={`/${s.slug}`}
+                      key={c.slug}
+                      href={c.href}
                       tabIndex={statesOpen ? 0 : -1}
                       className="flex items-center justify-between px-4 py-2 text-sm text-ink-soft hover:bg-paper-soft hover:text-ink"
                     >
-                      {s.name}
-                      <span className="font-mono text-[10px] text-ink-faint">{s.code}</span>
+                      {c.label}
+                      <span className="font-mono text-[10px] text-ink-faint">{c.state}</span>
                     </Link>
                   ))}
                   <div className="border-t border-rule mt-2 pt-2">
-                    <Link
-                      href="/#states"
-                      tabIndex={statesOpen ? 0 : -1}
-                      className="block px-4 py-1.5 text-sm font-medium text-sage-600 hover:text-sage-700"
-                    >
-                      All states →
-                    </Link>
+                    <p className="px-4 pt-1 pb-2 kicker text-xs">State guides</p>
+                    {STATES.map((s) => (
+                      <Link
+                        key={s.code}
+                        href={`/${s.slug}`}
+                        tabIndex={statesOpen ? 0 : -1}
+                        className="flex items-center justify-between px-4 py-1.5 text-sm text-ink-soft hover:bg-paper-soft hover:text-ink"
+                      >
+                        {s.name}
+                        <span className="font-mono text-[10px] text-ink-faint">{s.code}</span>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -121,6 +137,14 @@ export function SiteHeader() {
             <MobileLink href="/tools/adu-cost-calculator" onNavigate={() => setMobileOpen(false)}>Cost calculator</MobileLink>
             <MobileLink href="/faq" onNavigate={() => setMobileOpen(false)}>FAQ</MobileLink>
             <MobileLink href="/about" onNavigate={() => setMobileOpen(false)}>About</MobileLink>
+            <div className="pt-2">
+              <p className="kicker px-3 pb-1">City cost guides</p>
+              {CITY_GUIDES.map((c) => (
+                <MobileLink key={c.slug} href={c.href} onNavigate={() => setMobileOpen(false)}>
+                  {c.label} ADU cost
+                </MobileLink>
+              ))}
+            </div>
             <div className="pt-2">
               <p className="kicker px-3 pb-1">States</p>
               {STATES.map((s) => (
