@@ -162,14 +162,16 @@ export function CostCalculator() {
                 key={b.id}
                 type="button"
                 onClick={() => setBuildType(b.id)}
-                className={`text-left border px-4 py-3 transition ${
+                className={`text-left border-2 px-4 py-3 transition-colors ${
                   buildType === b.id
-                    ? "border-sage-600 bg-paper-card text-ink"
-                    : "border-rule bg-paper-card text-ink-soft hover:border-sage-600 hover:text-ink"
+                    ? "border-sage-600 bg-sage-50 text-ink"
+                    : "border-rule bg-paper-card text-ink-soft hover:border-sage-400 hover:text-ink"
                 }`}
                 aria-pressed={buildType === b.id}
               >
-                <span className="block text-sm font-medium">{b.label}</span>
+                <span className={`block text-sm ${buildType === b.id ? "font-semibold" : "font-medium"}`}>
+                  {b.label}
+                </span>
                 <span className="block text-xs text-ink-muted mt-1">{b.sub}</span>
               </button>
             ))}
@@ -191,15 +193,17 @@ export function CostCalculator() {
                 key={s.sqft}
                 type="button"
                 onClick={() => setSqft(s.sqft)}
-                className={`border px-2 py-3 text-xs transition ${
+                className={`border-2 px-2 py-3 text-xs transition-colors ${
                   sqft === s.sqft
-                    ? "border-sage-600 bg-paper-card text-ink font-medium"
-                    : "border-rule bg-paper-card text-ink-soft hover:border-sage-600 hover:text-ink"
+                    ? "border-sage-600 bg-sage-50 text-ink font-semibold"
+                    : "border-rule bg-paper-card text-ink-soft hover:border-sage-400 hover:text-ink"
                 }`}
                 aria-pressed={sqft === s.sqft}
               >
                 <span className="block">{s.sqft.toLocaleString()}</span>
-                <span className="block text-ink-muted mt-1">sqft</span>
+                <span className={`block mt-1 ${sqft === s.sqft ? "text-ink-soft" : "text-ink-muted"}`}>
+                  sqft
+                </span>
               </button>
             ))}
           </div>
@@ -213,14 +217,16 @@ export function CostCalculator() {
                 key={f.id}
                 type="button"
                 onClick={() => setFinish(f.id)}
-                className={`text-left border px-3 py-3 transition ${
+                className={`text-left border-2 px-3 py-3 transition-colors ${
                   finish === f.id
-                    ? "border-sage-600 bg-paper-card text-ink"
-                    : "border-rule bg-paper-card text-ink-soft hover:border-sage-600 hover:text-ink"
+                    ? "border-sage-600 bg-sage-50 text-ink"
+                    : "border-rule bg-paper-card text-ink-soft hover:border-sage-400 hover:text-ink"
                 }`}
                 aria-pressed={finish === f.id}
               >
-                <span className="block text-sm font-medium">{f.label}</span>
+                <span className={`block text-sm ${finish === f.id ? "font-semibold" : "font-medium"}`}>
+                  {f.label}
+                </span>
                 <span className="block text-xs text-ink-muted mt-1">{f.sub}</span>
               </button>
             ))}
