@@ -3,15 +3,16 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV !== "production";
 
 // Pragmatic CSP: locks down framing/base/form/object while allowing what the
-// app actually uses (Next inline bootstrap, our inline JSON-LD, Plausible,
-// self-hosted next/font). 'unsafe-eval' only in dev (HMR). Tighten with nonces later.
+// app actually uses (Next inline bootstrap, our inline JSON-LD, Google
+// Analytics 4, self-hosted next/font). 'unsafe-eval' only in dev (HMR).
+// Tighten with nonces later.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://plausible.io${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://plausible.io",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.googletagmanager.com https://*.analytics.google.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
