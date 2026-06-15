@@ -79,11 +79,15 @@ export default function PrivacyPage() {
           troubleshooting.
         </li>
         <li>
-          <strong>Site analytics:</strong> we use Plausible Analytics, a{" "}
-          <strong>cookieless</strong>, privacy-respecting product that records
-          aggregate, anonymized visit data (page views, country, browser
-          family, referrer). Plausible does not set cookies, does not track you
-          across sites, and does not collect personal information.
+          <strong>Site analytics:</strong> we use Google Analytics 4 to
+          understand aggregate site usage (page views, country, browser family,
+          referrer, time on page, scroll depth). Google Analytics sets cookies
+          (such as <code>_ga</code> and <code>_ga_*</code>) and collects an
+          anonymized version of your IP address. We do not use the data for
+          ad-personalization or retargeting. California residents can request
+          we exclude their data — see the &ldquo;Do Not Sell or Share My
+          Personal Information&rdquo; section on our{" "}
+          <a href="/disclosures" className="underline">Disclosures page</a>.
         </li>
       </ul>
 
@@ -170,12 +174,11 @@ export default function PrivacyPage() {
           to you and to matched builders).
         </li>
         <li>
-          <strong>Replit Deployments</strong> — Site hosting and edge
-          infrastructure.
+          <strong>Vercel</strong> — Site hosting and edge infrastructure.
         </li>
         <li>
-          <strong>Plausible Analytics</strong> — privacy-respecting, cookieless
-          aggregate analytics.
+          <strong>Google Analytics 4</strong> — aggregate site analytics
+          (cookie-based, anonymized IP).
         </li>
       </ul>
       <p>
@@ -230,9 +233,10 @@ export default function PrivacyPage() {
           approximately 30 days unless needed longer to investigate abuse.
         </li>
         <li>
-          <strong>Analytics:</strong> Plausible stores only aggregated,
-          anonymized data; we retain it for as long as the analytics account is
-          active.
+          <strong>Analytics:</strong> Google Analytics 4 retains
+          event-level data for 14 months by default; aggregate reports are
+          kept indefinitely. We do not store personal identifiers in Google
+          Analytics.
         </li>
       </ul>
       <p>
@@ -505,11 +509,21 @@ export default function PrivacyPage() {
       <p>
         We use a minimal set of strictly-necessary cookies and local-storage
         items required to operate the Site (for example, to remember that you
-        successfully submitted the inquiry). Our analytics provider, Plausible,
-        is <strong>cookieless</strong>. We do not use third-party advertising
-        cookies, retargeting pixels, or cross-site trackers. If that changes,
-        this Policy will be updated and a cookie banner added where required by
-        law.
+        successfully submitted the inquiry). We also use Google Analytics 4,
+        which sets analytics cookies (such as <code>_ga</code> and{" "}
+        <code>_ga_*</code>) to measure aggregate site usage. We do not use
+        third-party advertising cookies, retargeting pixels, or cross-site
+        trackers. You can opt out of Google Analytics tracking site-wide by
+        installing the{" "}
+        <a
+          href="https://tools.google.com/dlpage/gaoptout"
+          target="_blank"
+          rel="noopener"
+          className="underline"
+        >
+          Google Analytics Opt-out Browser Add-on
+        </a>
+        , or by setting your browser to block third-party cookies.
       </p>
 
       <LegalH2>11. Third-party links</LegalH2>
