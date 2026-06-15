@@ -92,7 +92,10 @@ const localBusinessJsonLd = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  // Trim defensively — env vars pasted into Vercel can pick up stray whitespace
+  // (tabs, newlines, spaces) from the clipboard, which would inject an invalid
+  // GA4 property ID and silently drop all events.
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 
   return (
     <html
