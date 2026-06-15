@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Fraunces, JetBrains_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
@@ -104,6 +103,23 @@ export default function RootLayout({
     >
       <head>
         <link rel="llms" href="/llms.txt" />
+        {/* Google Analytics 4 — plain script tags in <head> per Google's official
+            install guide. We avoid next/script with strategy="afterInteractive"
+            because in this Next.js / Turbopack setup the scripts get buried in
+            the RSC hydration payload and never make it into the DOM. */}
+        {gaMeasurementId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${gaMeasurementId}', { anonymize_ip: true });`,
+              }}
+            />
+          </>
+        ) : null}
       </head>
       <body className="paper min-h-full flex flex-col text-ink">
         <a
@@ -118,22 +134,6 @@ export default function RootLayout({
         </div>
         <Footer />
         <JsonLd data={localBusinessJsonLd} />
-        {gaMeasurementId ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}', { anonymize_ip: true });
-              `}
-            </Script>
-          </>
-        ) : null}
       </body>
     </html>
   );
