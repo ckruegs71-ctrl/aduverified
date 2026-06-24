@@ -70,7 +70,7 @@ export default function TermsPage() {
       </p>
 
       <LegalH2>Contact</LegalH2>
-      <p>Questions: hello@aduverified.com.</p>
+      <p>Questions about these Terms? See the contact details in our <a href="/privacy" className="text-sage-600 underline">Privacy Policy</a>.</p>
     </LegalPage>
   );
 }

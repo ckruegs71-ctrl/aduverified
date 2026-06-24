@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Fraunces, JetBrains_Mono } from "next/font/google";
+import { Hanken_Grotesk, Newsreader, JetBrains_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Body sans — warm humanist grotesk, no Vercel/Geist fingerprint.
+const hankenSans = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
   display: "swap",
 });
 
-// Editorial display serif — variable axes for soft/opsz feel.
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Editorial display serif — magazine-grade, optical-size axis + true italic.
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
   display: "swap",
-  axes: ["SOFT", "opsz"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
 });
 
 const jetbrains = JetBrains_Mono({
@@ -99,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${fraunces.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${hankenSans.variable} ${newsreader.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <head>
         <link rel="llms" href="/llms.txt" />

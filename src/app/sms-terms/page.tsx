@@ -53,7 +53,7 @@ export default function SmsTermsPage() {
       </p>
 
       <LegalH2>Contact</LegalH2>
-      <p>Questions: support@aduverified.com.</p>
+      <p>Questions? See the contact details in our <a href="/privacy" className="text-sage-600 underline">Privacy Policy</a>.</p>
     </LegalPage>
   );
 }

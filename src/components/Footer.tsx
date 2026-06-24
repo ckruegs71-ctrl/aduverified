@@ -51,14 +51,6 @@ export function Footer() {
             links={STATES.map((s) => ({ href: `/${s.slug}`, label: s.name }))}
           />
           <FooterCol
-            title="For builders"
-            links={[
-              { href: "mailto:hello@aduverified.com", label: "Get listed" },
-              { href: "mailto:hello@aduverified.com", label: "How leads work" },
-              { href: "mailto:hello@aduverified.com", label: "Pricing" },
-            ]}
-          />
-          <FooterCol
             title="Legal"
             links={[
               { href: "/privacy", label: "Privacy policy" },

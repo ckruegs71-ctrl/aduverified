@@ -24,8 +24,9 @@ export default function DisclosuresPage() {
         California residents may opt out of the &ldquo;sale&rdquo; or
         &ldquo;sharing&rdquo; of their personal information. Because we share your
         inquiry details with matched builders, this opt-out applies to you. To
-        opt out, email privacy@aduverified.com with the subject &ldquo;Do Not
-        Sell or Share&rdquo;, or [insert opt-out form/link before launch]. Note:
+        opt out, use the contact details in our{" "}
+        <a href="/privacy" className="text-sage-600 underline">Privacy Policy</a>{" "}
+        or [insert opt-out form/link before launch]. Note:
         opting out means we cannot match you with builders, since matching
         requires sharing your details.
       </p>
@@ -49,7 +50,7 @@ export default function DisclosuresPage() {
       </p>
 
       <LegalH2>Contact</LegalH2>
-      <p>Questions: privacy@aduverified.com.</p>
+      <p>Questions? See the contact details in our <a href="/privacy" className="text-sage-600 underline">Privacy Policy</a>.</p>
     </LegalPage>
   );
 }

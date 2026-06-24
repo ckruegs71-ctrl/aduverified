@@ -45,7 +45,7 @@ export function ContentPage({
           <ol className="flex flex-wrap items-center gap-2">
             <li><Link href="/" className="hover:text-sage-700">Home</Link></li>
             {crumbs.map((c, i) => (
-              <li key={c.href} className="flex items-center gap-2">
+              <li key={`${c.href}-${i}`} className="flex items-center gap-2">
                 <span aria-hidden>/</span>
                 {i === crumbs.length - 1 ? (
                   <span className="text-ink" aria-current="page">{c.label}</span>

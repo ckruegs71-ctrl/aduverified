@@ -266,14 +266,10 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Update or correct your information:</strong> email{" "}
-          <a href="mailto:privacy@aduverified.com" className="text-sage-600 underline">
-            privacy@aduverified.com
-          </a>{" "}
-          (or{" "}
           <a href="mailto:chad@prismagentsolutions.com" className="text-sage-600 underline">
             chad@prismagentsolutions.com
-          </a>
-          ) with the correction. Please use the email you submitted with so we
+          </a>{" "}
+          with the correction. Please use the email you submitted with so we
           can verify identity.
         </li>
       </ul>
@@ -402,8 +398,8 @@ export default function PrivacyPage() {
       </h3>
       <p>
         Email{" "}
-        <a href="mailto:privacy@aduverified.com" className="text-sage-600 underline">
-          privacy@aduverified.com
+        <a href="mailto:chad@prismagentsolutions.com" className="text-sage-600 underline">
+          chad@prismagentsolutions.com
         </a>{" "}
         with the subject &ldquo;Do Not Sell or Share My Personal
         Information.&rdquo; In the body, include the email address you used to
@@ -428,8 +424,8 @@ export default function PrivacyPage() {
       </h3>
       <p>
         Email{" "}
-        <a href="mailto:privacy@aduverified.com" className="text-sage-600 underline">
-          privacy@aduverified.com
+        <a href="mailto:chad@prismagentsolutions.com" className="text-sage-600 underline">
+          chad@prismagentsolutions.com
         </a>{" "}
         from the email address you used to submit your inquiry. We will respond
         within 45 days as required by the CCPA (we may extend once by another
@@ -453,8 +449,8 @@ export default function PrivacyPage() {
         residential property. We do not knowingly collect personal information
         from children under 16. If you believe a minor has submitted
         information, please email{" "}
-        <a href="mailto:privacy@aduverified.com" className="text-sage-600 underline">
-          privacy@aduverified.com
+        <a href="mailto:chad@prismagentsolutions.com" className="text-sage-600 underline">
+          chad@prismagentsolutions.com
         </a>{" "}
         and we will delete the record promptly. Under CPRA, we do not sell or
         share personal information of consumers we know to be under 16 without
@@ -552,12 +548,6 @@ export default function PrivacyPage() {
       <ul className="list-disc pl-6 space-y-1">
         <li>
           Email:{" "}
-          <a href="mailto:privacy@aduverified.com" className="text-sage-600 underline">
-            privacy@aduverified.com
-          </a>
-        </li>
-        <li>
-          Alternate email:{" "}
           <a href="mailto:chad@prismagentsolutions.com" className="text-sage-600 underline">
             chad@prismagentsolutions.com
           </a>

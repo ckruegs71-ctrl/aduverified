@@ -28,7 +28,6 @@ export default function AboutPage() {
     "@type": "Organization",
     name: "ADUVerified",
     url: SITE_URL,
-    email: "hello@aduverified.com",
     description:
       "ADUVerified is a lead-matching service that connects U.S. homeowners with ADU, tiny home, and pre-fab builders who serve their area.",
     areaServed: STATES.map((s) => s.name),
